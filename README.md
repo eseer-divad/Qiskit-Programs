@@ -8,3 +8,5 @@ qiskit
 matplotlib
 
 pylatexenc
+
+qiskit_ibm_runtime
