@@ -19,7 +19,7 @@ RUN python3 -m venv venv
 ENV PATH="/workspace/venv/bin:$PATH"
 
 # Install Python packages in the virtual environment
-RUN pip install --no-cache-dir notebook qiskit
+RUN pip install --no-cache-dir notebook qiskit matplotlib pylatexenc qiskit_ibm_runtime
 
 # Make port 8888 available for Jupyter
 EXPOSE 8888
