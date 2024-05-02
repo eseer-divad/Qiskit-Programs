@@ -11,17 +11,19 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libffi-dev \
     python3-dev \
-    python3-venv && \
+    python3-venv  \
+    python3-pip && \
     rm -rf /var/lib/apt/lists/*
 
 # Create a virtual environment in the workspace directory
-RUN python3 -m venv venv
+RUN python3 -m venv /workspace/venv
 
 # Ensure commands and scripts in the virtual environment are used in preference to the system-wide ones
 ENV PATH="/workspace/venv/bin:$PATH"
 
-# Install Python packages in the virtual environment
-RUN pip install --no-cache-dir notebook qiskit matplotlib pylatexenc qiskit_ibm_runtime
+# Upgrade pip and install Python packages in the virtual environment
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install numpy matplotlib pylatexenc qiskit_ibm_runtime qiskit-ibmq-provider
 
 # Make port 8888 available for the Jupyter Notebook server
 EXPOSE 8888

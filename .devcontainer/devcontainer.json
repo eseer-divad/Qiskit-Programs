@@ -1,14 +1,14 @@
 {
-    "name": "Python 3 with Qiskit",
-    "build": {
+  "name": "Python 3 with Qiskit",
+  "build": {
       "dockerfile": "Dockerfile"
-    },
-    "settings": {
+  },
+  "settings": {
       "terminal.integrated.shell.linux": "/bin/bash"
-    },
-    "forwardPorts": [8888],
-    "extensions": [
+  },
+  "forwardPorts": [8888],
+  "extensions": [
       "ms-python.python"
-    ],
-    "postCreateCommand": "pip install notebook qiskit"
-  }
+  ],
+  "postCreateCommand": "pip install --user notebook qiskit"
+}
